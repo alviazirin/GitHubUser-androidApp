@@ -1,11 +1,11 @@
-package alviazirin.dicoding.GitHubUser.detailuser
+package alviazirin.dicoding.githubuser.detailuser
 
 import alviazirin.dicoding.GitHubUser.R
 import android.os.Bundle
 import com.google.android.material.tabs.TabLayout
 import androidx.viewpager.widget.ViewPager
 import androidx.appcompat.app.AppCompatActivity
-import alviazirin.dicoding.GitHubUser.ui.tabs.SectionsPagerAdapter
+import alviazirin.dicoding.githubuser.ui.tabs.SectionsPagerAdapter
 import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -35,7 +35,8 @@ class DetailUserActivity : AppCompatActivity() {
         val tabs: TabLayout = findViewById(R.id.tabs)
         tabs.setupWithViewPager(viewPager)
 
-        detailViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(DetailUserViewModel::class.java)
+        detailViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(
+            DetailUserViewModel::class.java)
 
         showLoading(true)
         if (passedUsername != null) {

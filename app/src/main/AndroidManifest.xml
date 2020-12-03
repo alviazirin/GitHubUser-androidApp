@@ -12,11 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GitHubUser">
         <activity
-            android:name=".detailuser.DetailUserActivity"
+            android:name="alviazirin.dicoding.githubuser.detailuser.DetailUserActivity"
             android:label="@string/title_activity_detail_user"
             android:theme="@style/Theme.GitHubUser.NoActionBar"/>
 
-        <activity android:name=".MainActivity">
+        <activity android:name="alviazirin.dicoding.githubuser.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

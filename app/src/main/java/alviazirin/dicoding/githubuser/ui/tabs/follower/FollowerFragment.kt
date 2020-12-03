@@ -1,6 +1,6 @@
-package alviazirin.dicoding.GitHubUser.ui.tabs.follower
+package alviazirin.dicoding.githubuser.ui.tabs.follower
 
-import alviazirin.dicoding.GitHubUser.MainViewAdapter
+import alviazirin.dicoding.githubuser.MainViewAdapter
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -51,7 +51,8 @@ class FollowerFragment : Fragment() {
 
 
 
-        followerViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(FollowerViewModel::class.java)
+        followerViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(
+            FollowerViewModel::class.java)
         showLoading(true)
         followerViewModel.setFollower(passedUsername.toString())
         followerViewModel.getFollower().observe(viewLifecycleOwner, Observer { followerList ->

@@ -1,8 +1,9 @@
-package alviazirin.dicoding.GitHubUser
+package alviazirin.dicoding.githubuser
 
 
-import alviazirin.dicoding.GitHubUser.detailuser.DetailUserActivity
-import alviazirin.dicoding.GitHubUser.model.GitHubUserList
+import alviazirin.dicoding.GitHubUser.R
+import alviazirin.dicoding.githubuser.detailuser.DetailUserActivity
+import alviazirin.dicoding.githubuser.model.GitHubUserList
 import android.app.SearchManager
 import android.content.Context
 import android.content.Intent
@@ -30,7 +31,8 @@ class MainActivity : AppCompatActivity() {
 
         setAdapterRV()
 
-        viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(MainViewModel::class.java)
+        viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(
+            MainViewModel::class.java)
 
 
         showLoading(true)
@@ -42,7 +44,7 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-        adapter.setOnItemClickCallBack(object : MainViewAdapter.OnItemClickCallBack{
+        adapter.setOnItemClickCallBack(object : MainViewAdapter.OnItemClickCallBack {
             override fun OnItemClicked(data: GitHubUserList) {
                 val intent = Intent(this@MainActivity, DetailUserActivity::class.java)
                 intent.putExtra(DetailUserActivity.EXTRA_USERNAME, data.userLoginName)

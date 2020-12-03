@@ -1,4 +1,4 @@
-package alviazirin.dicoding.GitHubUser
+package alviazirin.dicoding.githubuser
 
 
 import androidx.test.InstrumentationRegistry
