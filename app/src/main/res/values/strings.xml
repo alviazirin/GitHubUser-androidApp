@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">GitHubUserUIUXAPI</string>
+    <string name="change_language">Change Language</string>
+    <string name="search_hint">Search for username here</string>
+    <string name="title_activity_detail_user">MainActivity</string>
+    <string name="title_follower">Follower</string>
+    <string name="title_following">Following</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="company">Company</string>
+    <string name="location">Location</string>
+    <string name="tab_follower">Follower</string>
+    <string name="tab_following">Following</string>
+    <string name="public_repositories">Public Repositories</string>
+    <string name="userLocation">Location is not provided</string>
+    <string name="userCompany">Not in any company</string>
+</resources>

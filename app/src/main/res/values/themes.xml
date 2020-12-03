@@ -1,0 +1,23 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.GitHubUserUIUXAPI" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/darkLiver</item>
+        <item name="colorPrimaryDark">@color/raisinBlack</item>
+        <item name="colorAccent">@color/electricBlue</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="Theme.GitHubUserUIUXAPI.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.GitHubUserUIUXAPI.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.GitHubUserUIUXAPI.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="mainFont">
+        <item name="fontFamily">@font/roboto</item>
+    </style>
+</resources>

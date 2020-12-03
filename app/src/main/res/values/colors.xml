@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="deep_taupe">#765C56</color>
+    <color name="middle_green_yellow">#C0C45A</color>
+    <color name="mindaro">#CFF88B</color>
+    <color name="cinereous">#918178</color>
+    <color name="darkLiver">#484349</color>
+    <color name="electricBlue">#8AF3FF</color>
+    <color name="raisinBlack">#201D20</color>
+</resources>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">GitHubUserUIUXAPI</string>
+    <string name="change_language">Ganti Bahasa</string>
+    <string name="search_hint">Cari username disini</string>
+    <string name="title_activity_detail_user">MainActivity</string>
+    <string name="title_follower">Pengikut</string>
+    <string name="title_following">Mengikuti</string>
+    <string name="title_notifications">Notifikasi</string>
+    <string name="company">Perusahaan</string>
+    <string name="location">Lokasi</string>
+    <string name="tab_follower">Pengikut</string>
+    <string name="tab_following">Mengikuti</string>
+    <string name="public_repositories">Repositori Publik</string>
+    <string name="userLocation">Lokasi tidak diberikan</string>
+    <string name="userCompany">Tidak dalam perusahaan</string>
+</resources>
