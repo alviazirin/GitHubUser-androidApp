@@ -1,4 +1,4 @@
-package alviazirin.dicoding.githubuseruiuxapi
+package alviazirin.dicoding.GitHubUser
 
 import org.junit.Test
 

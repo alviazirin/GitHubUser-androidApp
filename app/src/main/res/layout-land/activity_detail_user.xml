@@ -115,7 +115,7 @@
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:theme="@style/Theme.GitHubUserUIUXAPI.AppBarOverlay">
+            android:theme="@style/Theme.GitHubUser.AppBarOverlay">
 
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tabs"

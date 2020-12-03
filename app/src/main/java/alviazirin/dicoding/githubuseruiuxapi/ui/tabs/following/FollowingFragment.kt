@@ -1,12 +1,12 @@
-package alviazirin.dicoding.githubuseruiuxapi.ui.tabs.following
+package alviazirin.dicoding.GitHubUser.ui.tabs.following
 
-import alviazirin.dicoding.githubuseruiuxapi.MainViewAdapter
+import alviazirin.dicoding.GitHubUser.MainViewAdapter
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import alviazirin.dicoding.githubuseruiuxapi.R
+import alviazirin.dicoding.GitHubUser.R
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager

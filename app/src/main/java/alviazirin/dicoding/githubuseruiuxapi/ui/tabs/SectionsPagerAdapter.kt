@@ -1,12 +1,12 @@
-package alviazirin.dicoding.githubuseruiuxapi.ui.tabs
+package alviazirin.dicoding.GitHubUser.ui.tabs
 
 import android.content.Context
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import alviazirin.dicoding.githubuseruiuxapi.R
-import alviazirin.dicoding.githubuseruiuxapi.ui.tabs.follower.FollowerFragment
-import alviazirin.dicoding.githubuseruiuxapi.ui.tabs.following.FollowingFragment
+import alviazirin.dicoding.GitHubUser.R
+import alviazirin.dicoding.GitHubUser.ui.tabs.follower.FollowerFragment
+import alviazirin.dicoding.GitHubUser.ui.tabs.following.FollowingFragment
 
 private val TAB_TITLES = arrayOf(
     R.string.tab_follower,

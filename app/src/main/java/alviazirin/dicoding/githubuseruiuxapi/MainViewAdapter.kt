@@ -1,6 +1,6 @@
-package alviazirin.dicoding.githubuseruiuxapi
+package alviazirin.dicoding.GitHubUser
 
-import alviazirin.dicoding.githubuseruiuxapi.model.GitHubUserList
+import alviazirin.dicoding.GitHubUser.model.GitHubUserList
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup

@@ -1,8 +1,8 @@
-package alviazirin.dicoding.githubuseruiuxapi
+package alviazirin.dicoding.GitHubUser
 
 
-import alviazirin.dicoding.githubuseruiuxapi.detailuser.DetailUserActivity
-import alviazirin.dicoding.githubuseruiuxapi.model.GitHubUserList
+import alviazirin.dicoding.GitHubUser.detailuser.DetailUserActivity
+import alviazirin.dicoding.GitHubUser.model.GitHubUserList
 import android.app.SearchManager
 import android.content.Context
 import android.content.Intent

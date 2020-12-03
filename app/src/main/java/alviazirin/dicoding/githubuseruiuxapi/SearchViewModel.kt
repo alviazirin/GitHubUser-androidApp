@@ -1,6 +1,6 @@
-package alviazirin.dicoding.githubuseruiuxapi
+package alviazirin.dicoding.GitHubUser
 
-import alviazirin.dicoding.githubuseruiuxapi.model.GitHubUserList
+import alviazirin.dicoding.GitHubUser.model.GitHubUserList
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">GitHubUserUIUXAPI</string>
+    <string name="app_name">GitHubUser</string>
     <string name="change_language">Ganti Bahasa</string>
     <string name="search_hint">Cari username disini</string>
     <string name="title_activity_detail_user">MainActivity</string>

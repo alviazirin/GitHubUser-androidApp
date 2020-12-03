@@ -1,4 +1,4 @@
-package alviazirin.dicoding.githubuseruiuxapi.model
+package alviazirin.dicoding.GitHubUser.model
 
 class GitHubUserDetailList  {
     var id: Int = 0

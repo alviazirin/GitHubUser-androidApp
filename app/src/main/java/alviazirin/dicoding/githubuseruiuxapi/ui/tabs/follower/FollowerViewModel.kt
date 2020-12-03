@@ -1,6 +1,6 @@
-package alviazirin.dicoding.githubuseruiuxapi.ui.tabs.follower
+package alviazirin.dicoding.GitHubUser.ui.tabs.follower
 
-import alviazirin.dicoding.githubuseruiuxapi.model.GitHubUserList
+import alviazirin.dicoding.GitHubUser.model.GitHubUserList
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

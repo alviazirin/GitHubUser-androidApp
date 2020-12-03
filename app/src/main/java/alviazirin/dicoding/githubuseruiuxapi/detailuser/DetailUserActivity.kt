@@ -1,11 +1,11 @@
-package alviazirin.dicoding.githubuseruiuxapi.detailuser
+package alviazirin.dicoding.GitHubUser.detailuser
 
-import alviazirin.dicoding.githubuseruiuxapi.R
+import alviazirin.dicoding.GitHubUser.R
 import android.os.Bundle
 import com.google.android.material.tabs.TabLayout
 import androidx.viewpager.widget.ViewPager
 import androidx.appcompat.app.AppCompatActivity
-import alviazirin.dicoding.githubuseruiuxapi.ui.tabs.SectionsPagerAdapter
+import alviazirin.dicoding.GitHubUser.ui.tabs.SectionsPagerAdapter
 import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
