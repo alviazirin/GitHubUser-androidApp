@@ -43,6 +43,7 @@ class DetailUserViewModel : ViewModel() {
 
                     detailUserItem.add(gitHubUserDetailList)
 
+
                     detailUser.postValue(detailUserItem)
                 } catch (e: Exception){
                     Log.e("getDataExcept", e.message.toString())

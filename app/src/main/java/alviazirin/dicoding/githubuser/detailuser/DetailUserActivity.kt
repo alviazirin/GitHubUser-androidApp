@@ -1,11 +1,17 @@
 package alviazirin.dicoding.githubuser.detailuser
 
 import alviazirin.dicoding.GitHubUser.R
+import alviazirin.dicoding.githubuser.db.DatabaseContract.FavUserColumns.Companion.FAVUSERAVATARURL
+import alviazirin.dicoding.githubuser.db.DatabaseContract.FavUserColumns.Companion.FAVUSERLOGINNAME
+import alviazirin.dicoding.githubuser.db.FavUserHelper
+import alviazirin.dicoding.githubuser.entity.FavUser
 import android.os.Bundle
 import com.google.android.material.tabs.TabLayout
 import androidx.viewpager.widget.ViewPager
 import androidx.appcompat.app.AppCompatActivity
 import alviazirin.dicoding.githubuser.ui.tabs.SectionsPagerAdapter
+import android.content.ContentValues
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.Observer
@@ -18,10 +24,23 @@ class DetailUserActivity : AppCompatActivity() {
 
     companion object {
         const val EXTRA_USERNAME = "extra_username"
+
+        const val EXTRA_FAVUSER = "extra_favuser"
+        const val EXTRA_POSITION = "extra_position"
+        const val REQUEST_ADD = 100
+        const val RESULT_ADD = 101
+        const val REQUEST_UPDATE = 200
+        const val RESULT_UPDATE = 201
+        const val RESULT_DELETE = 301
     }
 
     private lateinit var detailViewModel: DetailUserViewModel
+    private var favUser: FavUser? = null
+    private var position: Int = 0
+    private lateinit var favUserHelper: FavUserHelper
+    private var favivurl: String = "favfailed"
 
+    private var userFavAva: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,6 +68,8 @@ class DetailUserActivity : AppCompatActivity() {
                     val companyNo = getString(R.string.userCompany)
                     val location = gitHubUserDetailList[0].userLocation
                     val company = gitHubUserDetailList[0].userCompany
+
+
                     Glide.with(this)
                             .load(gitHubUserDetailList[0].userAvatar)
                             .apply(RequestOptions().override(150,150))
@@ -59,6 +80,8 @@ class DetailUserActivity : AppCompatActivity() {
                     if (company.equals("null") )tv_DuserCompany.text = companyNo else tv_DuserCompany.text = company
 
                     tv_DuserPubRepo.text = gitHubUserDetailList[0].userPublicRepo.toString()
+                    tv_getter.text = gitHubUserDetailList[0].userAvatar
+
 
                     showLoading(false)
                 }
@@ -66,11 +89,34 @@ class DetailUserActivity : AppCompatActivity() {
 
         }
 
+        favUserHelper = FavUserHelper.getInstance(applicationContext)
+        favUserHelper.open()
+
+        favUser = intent.getParcelableExtra(EXTRA_FAVUSER)
+        if (favUser != null){
+            position = intent.getIntExtra(EXTRA_POSITION, 0)
+        } else {
+            favUser = FavUser()
+        }
+
+        val userFavAvaUrl = tv_getter.text.toString()
+        Log.d("ivdetailsource:", userFavAvaUrl)
         var statusFavorite = false
         setFavorited(statusFavorite)
 
         favButton.setOnClickListener { view ->
             statusFavorite = !statusFavorite
+            if (statusFavorite == true){
+
+                val userLoginName = tv_DuserLogin.text.toString()
+                val userFavAva = tv_getter.text.toString()
+
+                val values = ContentValues()
+                values.put(FAVUSERLOGINNAME, userLoginName)
+                values.put(FAVUSERAVATARURL, userFavAva)
+
+            }
+            //kode insert database ditulis disini
             setFavorited(statusFavorite)
             Toast.makeText(this, "Fab button working", Toast.LENGTH_SHORT).show()
         }
