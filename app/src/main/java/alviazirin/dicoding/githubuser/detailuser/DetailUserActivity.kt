@@ -66,7 +66,12 @@ class DetailUserActivity : AppCompatActivity() {
 
         }
 
+        var statusFavorite = false
+        setFavorited(statusFavorite)
+
         favButton.setOnClickListener { view ->
+            statusFavorite = !statusFavorite
+            setFavorited(statusFavorite)
             Toast.makeText(this, "Fab button working", Toast.LENGTH_SHORT).show()
         }
 
@@ -77,6 +82,13 @@ class DetailUserActivity : AppCompatActivity() {
             progressBarDetail.visibility = View.VISIBLE
         }else{
             progressBarDetail.visibility = View.GONE
+        }
+    }
+    private fun setFavorited(favoriteStatus: Boolean){
+        if (favoriteStatus){
+            favButton.setImageResource(R.drawable.ic_favorite_white_48dp)
+        } else {
+            favButton.setImageResource(R.drawable.ic_favorite_border_white_48dp)
         }
     }
 }
