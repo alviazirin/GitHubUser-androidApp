@@ -7,6 +7,7 @@ import androidx.viewpager.widget.ViewPager
 import androidx.appcompat.app.AppCompatActivity
 import alviazirin.dicoding.githubuser.ui.tabs.SectionsPagerAdapter
 import android.view.View
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
@@ -63,6 +64,10 @@ class DetailUserActivity : AppCompatActivity() {
                 }
             })
 
+        }
+
+        favButton.setOnClickListener { view ->
+            Toast.makeText(this, "Fab button working", Toast.LENGTH_SHORT).show()
         }
 
     }
