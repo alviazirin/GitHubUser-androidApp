@@ -5,6 +5,7 @@ import alviazirin.dicoding.githubuser.db.DatabaseContract.FavUserColumns.Compani
 import alviazirin.dicoding.githubuser.db.DatabaseContract.FavUserColumns.Companion.FAVUSERLOGINNAME
 import alviazirin.dicoding.githubuser.db.FavUserHelper
 import alviazirin.dicoding.githubuser.entity.FavUser
+import alviazirin.dicoding.githubuser.helper.MappingHelper
 import android.os.Bundle
 import com.google.android.material.tabs.TabLayout
 import androidx.viewpager.widget.ViewPager
@@ -38,9 +39,9 @@ class DetailUserActivity : AppCompatActivity() {
     private var favUser: FavUser? = null
     private var position: Int = 0
     private lateinit var favUserHelper: FavUserHelper
-    private var favivurl: String = "favfailed"
+    private var state: Boolean = true
 
-    private var userFavAva: String? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -99,28 +100,66 @@ class DetailUserActivity : AppCompatActivity() {
             favUser = FavUser()
         }
 
-        val userFavAvaUrl = tv_getter.text.toString()
-        Log.d("ivdetailsource:", userFavAvaUrl)
-        var statusFavorite = false
-        setFavorited(statusFavorite)
+
+       loadFavUser(passedUsername.toString())
+        var statusFavorite: Boolean = state
 
         favButton.setOnClickListener { view ->
             statusFavorite = !statusFavorite
-            if (statusFavorite == true){
+            Log.d("statusfavoritenow",statusFavorite.toString())
+            if (statusFavorite){
 
                 val userLoginName = tv_DuserLogin.text.toString()
                 val userFavAva = tv_getter.text.toString()
 
+                //kode insert database ditulis disini
                 val values = ContentValues()
                 values.put(FAVUSERLOGINNAME, userLoginName)
                 values.put(FAVUSERAVATARURL, userFavAva)
+                favUserHelper.insert(values)
+                Log.d("statebutton", statusFavorite.toString() + " Doing input DB")
 
+            } else {
+                favUserHelper.deleteByLoginName(tv_DuserLogin.text.toString())
+                Log.d("statebutton", statusFavorite.toString() + " Delete data from DB")
             }
-            //kode insert database ditulis disini
+
             setFavorited(statusFavorite)
             Toast.makeText(this, "Fab button working", Toast.LENGTH_SHORT).show()
         }
 
+
+
+
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+
+
+    }
+
+    private fun loadFavUser(loginName: String) {
+        //var returnedState: Boolean = false
+
+        val cursor = favUserHelper.queryByLoginName(loginName)
+        val listFav = MappingHelper.mapCursorToArrayList(cursor)
+
+
+        if (listFav.size>0){
+            state = true
+            //returnedState = !returnedState
+            Log.d("favState", "User is favorited")
+            Log.d("stateLoad", state.toString())
+            setFavorited(true)
+        } else {
+            state = false
+            //returnedState = !returnedState
+            Log.d("favState", "User doesn't favorited")
+            Log.d("stateLoad", state.toString())
+            setFavorited(false)
+        }
     }
 
     private fun showLoading(state: Boolean) {

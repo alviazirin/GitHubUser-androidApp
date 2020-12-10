@@ -14,4 +14,7 @@
     <string name="public_repositories">Repositori Publik</string>
     <string name="userLocation">Lokasi tidak diberikan</string>
     <string name="userCompany">Tidak dalam perusahaan</string>
+    <string name="favorite">Favorit</string>
+    <string name="favNoUser">Kamu masih belum memiliki user favorit</string>
+    <string name="menuSetting">Pengaturan</string>
 </resources>

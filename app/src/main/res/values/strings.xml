@@ -13,4 +13,7 @@
     <string name="public_repositories">Public Repositories</string>
     <string name="userLocation">Location is not provided</string>
     <string name="userCompany">Not in any company</string>
+    <string name="favorite">Favorite</string>
+    <string name="favNoUser">You still dont have a favorite user</string>
+    <string name="menuSetting">Settings</string>
 </resources>

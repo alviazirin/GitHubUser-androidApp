@@ -3,6 +3,7 @@ package alviazirin.dicoding.githubuser
 
 import alviazirin.dicoding.GitHubUser.R
 import alviazirin.dicoding.githubuser.detailuser.DetailUserActivity
+import alviazirin.dicoding.githubuser.favorite.FavoriteActivity
 import alviazirin.dicoding.githubuser.model.GitHubUserList
 import android.app.SearchManager
 import android.content.Context
@@ -12,6 +13,7 @@ import android.provider.Settings
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.Observer
@@ -79,10 +81,18 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if(item.itemId == R.id.option_lang){
-            val langIntent =  Intent(Settings.ACTION_LOCALE_SETTINGS)
-            startActivity(langIntent)
+        when(item.itemId){
+            R.id.option_lang -> {
+                                    val langIntent =  Intent(Settings.ACTION_LOCALE_SETTINGS)
+                                    startActivity(langIntent)
+                                }
+            R.id.favorite -> {
+                                    val intentFav = Intent(this, FavoriteActivity::class.java)
+                                    startActivity(intentFav)
+                                }
+            R.id.setting -> Toast.makeText(this,"Will go to setting", Toast.LENGTH_SHORT).show()
         }
+
         return super.onOptionsItemSelected(item)
     }
 

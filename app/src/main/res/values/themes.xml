@@ -4,7 +4,7 @@
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/darkLiver</item>
         <item name="colorPrimaryDark">@color/raisinBlack</item>
-        <item name="colorAccent">@color/electricBlue</item>
+        <item name="colorAccent">@color/opal</item>
         <!-- Customize your theme here. -->
     </style>
 

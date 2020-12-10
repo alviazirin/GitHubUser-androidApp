@@ -14,7 +14,7 @@ internal class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATA
         private const val DATABASE_VERSION = 1
 
         private val SQL_CREATE_TABLER_FAVUSER = "CREATE TABLE $TABLE_NAME" +
-                "(${DatabaseContract.FavUserColumns._ID} INTEGER PRIMARY KEY AUTO INCREMENT," +
+                "(${DatabaseContract.FavUserColumns._ID} INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "${DatabaseContract.FavUserColumns.FAVUSERLOGINNAME} TEXT NOT NULL," +
                 "${DatabaseContract.FavUserColumns.FAVUSERAVATARURL} TEXT NOT NULL )"
     }
