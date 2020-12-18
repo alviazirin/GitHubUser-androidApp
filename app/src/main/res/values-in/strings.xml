@@ -17,4 +17,12 @@
     <string name="favorite">Favorit</string>
     <string name="favNoUser">Kamu masih belum memiliki user favorit</string>
     <string name="menuSetting">Pengaturan</string>
+    <string name="alarmPreference">Aktifkan Alarm</string>
+
+    <string name="key_lang">indonesia</string>
+    <string-array name="key_language">
+        <item>English</item>
+        <item>Indonesia</item>
+    </string-array>
+    <string name="key_alarm">alarm</string>
 </resources>

@@ -82,15 +82,18 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
-            R.id.option_lang -> {
+            /*R.id.option_lang -> {
                                     val langIntent =  Intent(Settings.ACTION_LOCALE_SETTINGS)
                                     startActivity(langIntent)
-                                }
+                                }*/
             R.id.favorite -> {
                                     val intentFav = Intent(this, FavoriteActivity::class.java)
                                     startActivity(intentFav)
                                 }
-            R.id.setting -> Toast.makeText(this,"Will go to setting", Toast.LENGTH_SHORT).show()
+            R.id.setting -> {
+                                    val intentSet = Intent(this, SettingActivity::class.java)
+                                    startActivity(intentSet)
+                            }
         }
 
         return super.onOptionsItemSelected(item)

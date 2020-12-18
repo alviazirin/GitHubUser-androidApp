@@ -16,4 +16,12 @@
     <string name="favorite">Favorite</string>
     <string name="favNoUser">You still dont have a favorite user</string>
     <string name="menuSetting">Settings</string>
+    <string name="alarmPreference">Activate Alarm</string>
+
+    <string name="key_lang">english</string>
+    <string-array name="key_language">
+        <item>English</item>
+        <item>Indonesia</item>
+    </string-array>
+    <string name="key_alarm">alarm</string>
 </resources>
