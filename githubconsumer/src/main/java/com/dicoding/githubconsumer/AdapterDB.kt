@@ -1,14 +1,14 @@
-package alviazirin.dicoding.githubuser
+package com.dicoding.githubconsumer
 
 
-import alviazirin.dicoding.githubuser.entity.FavUser
-import alviazirin.dicoding.githubuser.model.GitHubUserList
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.dicoding.githubconsumer.entity.FavUser
 import kotlinx.android.synthetic.main.github_user_item.view.*
 
 class AdapterDB() : RecyclerView.Adapter<AdapterDB.AdapterDBViewHolder>() {

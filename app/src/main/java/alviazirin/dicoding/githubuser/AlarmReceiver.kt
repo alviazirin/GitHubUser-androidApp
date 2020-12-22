@@ -1,6 +1,6 @@
 package alviazirin.dicoding.githubuser
 
-import alviazirin.dicoding.GitHubUser.R
+
 import android.app.AlarmManager
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -10,7 +10,6 @@ import android.content.Context
 import android.content.Intent
 import android.media.RingtoneManager
 import android.os.Build
-import android.util.Log
 import android.widget.Toast
 import androidx.core.app.NotificationCompat
 import java.text.ParseException
@@ -55,14 +54,21 @@ class AlarmReceiver : BroadcastReceiver() {
 
         val calendar = Calendar.getInstance()
         val whathour = calendar.get(Calendar.HOUR_OF_DAY)
+        val whatMinute = calendar.get(Calendar.MINUTE)
         calendar.set(Calendar.HOUR_OF_DAY, Integer.parseInt(timeArray[0]))
         calendar.set(Calendar.MINUTE, Integer.parseInt(timeArray[1]))
         calendar.set(Calendar.SECOND,0)
-        Log.d("what Hour:", whathour.toString())
+
 
         val pendingIntent = PendingIntent.getBroadcast(context, ID_SETALARM, intent, 0)
         alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.timeInMillis, AlarmManager.INTERVAL_DAY, pendingIntent)
-        Toast.makeText(context,"Daily Alarm set", Toast.LENGTH_SHORT).show()
+        /*if(whathour>=9 && whatMinute>0){
+            alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.timeInMillis, AlarmManager.INTERVAL_DAY+1, pendingIntent)
+        } else {
+            alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.timeInMillis, AlarmManager.INTERVAL_DAY, pendingIntent)
+        }*/
+
+        //Toast.makeText(context,"Daily Alarm set", Toast.LENGTH_SHORT).show()
 
 
     }
@@ -123,4 +129,5 @@ class AlarmReceiver : BroadcastReceiver() {
             true
         }
     }
+
 }

@@ -1,7 +1,7 @@
 package alviazirin.dicoding.githubuser
 
 
-import alviazirin.dicoding.GitHubUser.R
+
 import alviazirin.dicoding.githubuser.detailuser.DetailUserActivity
 import alviazirin.dicoding.githubuser.favorite.FavoriteActivity
 import alviazirin.dicoding.githubuser.model.GitHubUserList
@@ -9,11 +9,9 @@ import android.app.SearchManager
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.provider.Settings
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.Observer

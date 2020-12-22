@@ -1,7 +1,5 @@
 package alviazirin.dicoding.githubuser.ui.tabs.follower
 
-import alviazirin.dicoding.githubuser.MainViewAdapter
-import alviazirin.dicoding.githubuser.R
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -11,6 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.dicoding.githubconsumer.MainViewAdapter
+import com.dicoding.githubconsumer.R
 import kotlinx.android.synthetic.main.fragment_follower.*
 
 class FollowerFragment : Fragment() {

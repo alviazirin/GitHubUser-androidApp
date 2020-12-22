@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/prefScreen"
     app:iconSpaceReserved="false">
 
     <SwitchPreference
         android:defaultValue="false"
         android:key="@string/key_alarm"
         android:title="@string/alarmPreference" />
-    <Preference
-        android:icon="@drawable/ic_language2_black_48dp"
-        android:key="language_preference"
-        android:title="@string/change_language" />
+
     <ListPreference
         android:icon="@drawable/ic_language2_black_48dp"
+        android:entries="@array/key_languageLabel"
+        android:entryValues="@array/key_languageLabel"
         android:key="@string/key_lang"
-        android:title="@string/change_language"/>
+        android:title="@string/change_language" />
+    <Preference
+        android:title="Acts like a button"
+        android:key="@string/key_langpref"
+        android:summary="This is a cool button"/>
 </PreferenceScreen>

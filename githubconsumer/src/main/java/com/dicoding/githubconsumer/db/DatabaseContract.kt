@@ -1,4 +1,4 @@
-package alviazirin.dicoding.githubuser.db
+package com.dicoding.githubconsumer.db
 
 import android.net.Uri
 import android.provider.BaseColumns
@@ -16,9 +16,9 @@ object DatabaseContract {
             const val FAVUSERAVATARURL = "favuseravatarurl"
 
             val CONTENT_URI: Uri = Uri.Builder().scheme(SCHEME)
-                .authority(AUTHORITY)
-                .appendPath(TABLE_NAME)
-                .build()
+                    .authority(AUTHORITY)
+                    .appendPath(TABLE_NAME)
+                    .build()
         }
     }
 }

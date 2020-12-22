@@ -1,8 +1,8 @@
-package alviazirin.dicoding.githubuser.helper
+package com.dicoding.githubconsumer.helper
 
-import alviazirin.dicoding.githubuser.db.DatabaseContract
-import alviazirin.dicoding.githubuser.entity.FavUser
 import android.database.Cursor
+import com.dicoding.githubconsumer.db.DatabaseContract
+import com.dicoding.githubconsumer.entity.FavUser
 
 object MappingHelper {
 

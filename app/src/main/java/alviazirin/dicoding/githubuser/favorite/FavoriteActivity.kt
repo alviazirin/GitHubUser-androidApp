@@ -1,17 +1,17 @@
 package alviazirin.dicoding.githubuser.favorite
 
-import alviazirin.dicoding.GitHubUser.R
 import alviazirin.dicoding.githubuser.AdapterDB
-import alviazirin.dicoding.githubuser.MainViewAdapter
+import alviazirin.dicoding.githubuser.R
+import alviazirin.dicoding.githubuser.db.DatabaseContract.FavUserColumns.Companion.CONTENT_URI
 import alviazirin.dicoding.githubuser.db.FavUserHelper
 import alviazirin.dicoding.githubuser.detailuser.DetailUserActivity
 import alviazirin.dicoding.githubuser.entity.FavUser
 import alviazirin.dicoding.githubuser.helper.MappingHelper
-import alviazirin.dicoding.githubuser.model.GitHubUserList
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_detail_user.*
@@ -35,6 +35,8 @@ class FavoriteActivity : AppCompatActivity() {
         favUserHelper = FavUserHelper.getInstance(applicationContext)
         favUserHelper.open()
         loadFavUserFromDB()
+        val whatUri = CONTENT_URI.toString()
+        Log.d("whatUri: ", whatUri)
         toDetailFav()
 
     }
@@ -54,7 +56,7 @@ class FavoriteActivity : AppCompatActivity() {
         GlobalScope.launch(Dispatchers.Main){
             progressBar.visibility = View.VISIBLE
             val defferedUser = async(Dispatchers.IO){
-                val cursor = favUserHelper.queryAll()
+                val cursor = contentResolver.query(CONTENT_URI, null, null, null, null)
                 MappingHelper.mapCursorToArrayList(cursor)
             }
             progressBar.visibility = View.INVISIBLE

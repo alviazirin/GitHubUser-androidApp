@@ -17,11 +17,20 @@
     <string name="favNoUser">You still dont have a favorite user</string>
     <string name="menuSetting">Settings</string>
     <string name="alarmPreference">Activate Alarm</string>
+    <string name="alarmMessage">Tap here to open this application</string>
+    <string name="alarmStateOn">Your Alarm is SET,  turn it OFF if not needed</string>
+    <string name="alarmStateOff">Your Alarm is OFF, turn it ON if needed</string>
 
+    <string name="your_lang">English</string>
     <string name="key_lang">english</string>
-    <string-array name="key_language">
+    <string name="key_langpref">lang</string>
+    <string-array name="key_languageLabel">
         <item>English</item>
         <item>Indonesia</item>
+    </string-array>
+    <string-array name="key_languageValue">
+        <item>english</item>
+        <item>indonesia</item>
     </string-array>
     <string name="key_alarm">alarm</string>
 </resources>

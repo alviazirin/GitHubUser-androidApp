@@ -1,12 +1,5 @@
-package alviazirin.dicoding.githubuser.detailuser
+package com.dicoding.githubconsumer.detailuser
 
-import alviazirin.dicoding.githubuser.R
-import alviazirin.dicoding.githubuser.db.DatabaseContract.FavUserColumns.Companion.CONTENT_URI
-import alviazirin.dicoding.githubuser.db.DatabaseContract.FavUserColumns.Companion.FAVUSERAVATARURL
-import alviazirin.dicoding.githubuser.db.DatabaseContract.FavUserColumns.Companion.FAVUSERLOGINNAME
-import alviazirin.dicoding.githubuser.db.FavUserHelper
-import alviazirin.dicoding.githubuser.entity.FavUser
-import alviazirin.dicoding.githubuser.helper.MappingHelper
 import alviazirin.dicoding.githubuser.ui.tabs.SectionsPagerAdapter
 import android.content.ContentValues
 import android.net.Uri
@@ -20,11 +13,15 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager.widget.ViewPager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.dicoding.githubconsumer.R
+import com.dicoding.githubconsumer.db.DatabaseContract.FavUserColumns.Companion.CONTENT_URI
+import com.dicoding.githubconsumer.db.DatabaseContract.FavUserColumns.Companion.FAVUSERAVATARURL
+import com.dicoding.githubconsumer.db.DatabaseContract.FavUserColumns.Companion.FAVUSERLOGINNAME
+import com.dicoding.githubconsumer.helper.MappingHelper
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.activity_detail_user.*
 
 class DetailUserActivity : AppCompatActivity() {
-
     companion object {
         const val EXTRA_USERNAME = "extra_username"
 
@@ -32,9 +29,7 @@ class DetailUserActivity : AppCompatActivity() {
     }
 
     private lateinit var detailViewModel: DetailUserViewModel
-    private var favUser: FavUser? = null
-    private var position: Int = 0
-    private lateinit var favUserHelper: FavUserHelper
+
     private var state: Boolean = true
 
 
@@ -68,9 +63,9 @@ class DetailUserActivity : AppCompatActivity() {
 
 
                     Glide.with(this)
-                            .load(gitHubUserDetailList[0].userAvatar)
-                            .apply(RequestOptions().override(150,150))
-                            .into(iv_DuserAva)
+                        .load(gitHubUserDetailList[0].userAvatar)
+                        .apply(RequestOptions().override(150,150))
+                        .into(iv_DuserAva)
                     tv_DuserLogin.text = gitHubUserDetailList[0].userLoginName
                     tv_DuserRealName.text = gitHubUserDetailList[0].userRealName
                     if (location.equals("null") ){tv_DuserLocation.text = locationNo} else {tv_DuserLocation.text = location}
@@ -86,11 +81,11 @@ class DetailUserActivity : AppCompatActivity() {
 
         }
 
-        favUserHelper = FavUserHelper.getInstance(applicationContext)
-        favUserHelper.open()
+        /*favUserHelper = FavUserHelper.getInstance(applicationContext)
+        favUserHelper.open()*/
 
 
-       loadFavUser(passedUsername.toString())
+        loadFavUser(passedUsername.toString())
         var statusFavorite: Boolean = state
 
         favButton.setOnClickListener { view ->
