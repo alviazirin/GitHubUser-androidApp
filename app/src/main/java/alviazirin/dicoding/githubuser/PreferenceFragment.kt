@@ -1,6 +1,7 @@
 package alviazirin.dicoding.githubuser
 
 
+import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
@@ -11,6 +12,7 @@ import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.SwitchPreference
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_setting.*
+import java.util.*
 
 class PreferenceFragment : PreferenceFragmentCompat(),
     SharedPreferences.OnSharedPreferenceChangeListener {
@@ -71,6 +73,8 @@ class PreferenceFragment : PreferenceFragmentCompat(),
             alarmReceiver.cancelAlarm(context, AlarmReceiver.SETALARM)
             showToastMessage(resources.getString(R.string.alarmStateOff))
         }
+
+
     }
 
     override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences, key: String) {
@@ -91,8 +95,14 @@ class PreferenceFragment : PreferenceFragmentCompat(),
         if (key == LANG){
 
             val value = userListLang.value.toString()
+            if (value.equals("English")){
+                setLocale(context,"en")
+            } else {
+                setLocale(context,"in")
+            }
+            userListLang.summary = value
 
-            Log.d("valueIndex", value)
+
 
         }
     }
@@ -102,9 +112,12 @@ class PreferenceFragment : PreferenceFragmentCompat(),
     private fun showToastMessage(message: String){
         Toast.makeText(context,message,Toast.LENGTH_LONG).show()
     }
-    /*private fun setLocale(localeName: String){
-
-        currentLanguage =
-        if (localeName != currentLanguage)
-    }*/
+    private fun setLocale(context: Context?, localeName: String){
+        val locale = Locale(localeName)
+        Locale.setDefault(locale)
+        val resources = context?.resources
+        val config = resources?.configuration
+        config?.setLocale(locale)
+        resources?.updateConfiguration(config, resources.displayMetrics)
+    }
 }
