@@ -90,6 +90,8 @@ class DetailUserActivity : AppCompatActivity() {
         favUserHelper.open()
 
 
+
+
        loadFavUser(passedUsername.toString())
         var statusFavorite: Boolean = state
 
@@ -125,6 +127,7 @@ class DetailUserActivity : AppCompatActivity() {
 
 
 
+
     }
 
     override fun onStart() {
@@ -141,6 +144,8 @@ class DetailUserActivity : AppCompatActivity() {
 
         val cursor = contentResolver?.query(uri, null, null, null, null)
         val listFav = MappingHelper.mapCursorToArrayList(cursor)
+
+
 
 
         if (listFav.size>0){

@@ -33,4 +33,6 @@
         <item>indonesia</item>
     </string-array>
     <string name="key_alarm">alarm</string>
+    <string name="appwidget_text">Favorite User Image</string>
+    <string name="empty_text">NO DATA</string>
 </resources>

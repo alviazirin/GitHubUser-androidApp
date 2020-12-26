@@ -16,6 +16,7 @@ class FavUserProvider : ContentProvider() {
     companion object {
         private const val FAVUSER = 1
         private const val FAVUSER_LOGINNAME = 2
+        private const val FAVUSER_AVAURL = 3
         private val sUriMatcher = UriMatcher(UriMatcher.NO_MATCH)
         private lateinit var favUserHelper: FavUserHelper
 
@@ -24,6 +25,7 @@ class FavUserProvider : ContentProvider() {
 
             sUriMatcher.addURI(AUTHORITY, "$TABLE_NAME/*", FAVUSER_LOGINNAME)
 
+            sUriMatcher.addURI(AUTHORITY, "$TABLE_NAME/AVAURL", FAVUSER_AVAURL)
         }
     }
 
@@ -40,6 +42,7 @@ class FavUserProvider : ContentProvider() {
         return when(sUriMatcher.match(uri)){
             FAVUSER -> favUserHelper.queryAll()
             FAVUSER_LOGINNAME -> favUserHelper.queryByLoginName(uri.lastPathSegment.toString())
+            FAVUSER_AVAURL -> favUserHelper.queryImgUrl()
             else -> null
         }
     }

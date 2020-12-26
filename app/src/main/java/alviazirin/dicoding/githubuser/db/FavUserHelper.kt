@@ -1,5 +1,6 @@
 package alviazirin.dicoding.githubuser.db
 
+import alviazirin.dicoding.githubuser.db.DatabaseContract.FavUserColumns.Companion.FAVUSERAVATARURL
 import alviazirin.dicoding.githubuser.db.DatabaseContract.FavUserColumns.Companion.FAVUSERLOGINNAME
 import alviazirin.dicoding.githubuser.db.DatabaseContract.FavUserColumns.Companion.TABLE_NAME
 import alviazirin.dicoding.githubuser.db.DatabaseContract.FavUserColumns.Companion._ID
@@ -48,6 +49,18 @@ class FavUserHelper(context: Context) {
             null,
             null,
             "$_ID ASC"
+        )
+    }
+    fun queryImgUrl(): Cursor{
+        return database.query(
+                DATABASE_TABLE,
+                arrayOf(FAVUSERAVATARURL),
+                null,
+                null,
+                null,
+                null,
+                "$_ID ASC"
+
         )
     }
 

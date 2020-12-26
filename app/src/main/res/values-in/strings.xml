@@ -34,4 +34,6 @@
         <item>indonesia</item>
     </string-array>
     <string name="key_alarm">alarm</string>
+    <string name="appwidget_text">Gambar User Favorit</string>
+    <string name="empty_text">TIDAK ADA DATA</string>
 </resources>
