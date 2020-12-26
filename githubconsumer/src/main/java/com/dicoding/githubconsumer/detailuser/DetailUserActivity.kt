@@ -2,6 +2,7 @@ package com.dicoding.githubconsumer.detailuser
 
 import alviazirin.dicoding.githubuser.ui.tabs.SectionsPagerAdapter
 import android.content.ContentValues
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -73,6 +74,7 @@ class DetailUserActivity : AppCompatActivity() {
 
                     tv_DuserPubRepo.text = gitHubUserDetailList[0].userPublicRepo.toString()
                     tv_getter.text = gitHubUserDetailList[0].userAvatar
+                    tv_htmlGetter.text = gitHubUserDetailList[0].userHtmlUrl
 
 
                     showLoading(false)
@@ -117,7 +119,16 @@ class DetailUserActivity : AppCompatActivity() {
             Toast.makeText(this, "Fab button working", Toast.LENGTH_SHORT).show()
         }
 
-
+        shareButton.setOnClickListener { view ->
+            val url = tv_htmlGetter.text.toString()
+            val sendIntent = Intent().apply {
+                action = Intent.ACTION_SEND
+                putExtra(Intent.EXTRA_TEXT, url)
+                type = "text/plain"
+            }
+            val shareIntent = Intent.createChooser(sendIntent,null)
+            startActivity(shareIntent)
+        }
 
 
     }

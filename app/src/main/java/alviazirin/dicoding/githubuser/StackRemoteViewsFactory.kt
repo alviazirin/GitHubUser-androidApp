@@ -51,7 +51,7 @@ internal class StackRemoteViewsFactory(private val mContext: Context): RemoteVie
         val bitmap = Glide.with(mContext)
                 .asBitmap()
                 .load(mWidgetItems.get(position).favUserAvatarUrl)
-                .submit(150,150)
+                .submit(512,512)
                 .get()
         rv.setImageViewBitmap(R.id.imageView, bitmap)
 

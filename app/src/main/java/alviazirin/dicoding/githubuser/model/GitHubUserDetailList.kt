@@ -8,5 +8,6 @@ class GitHubUserDetailList  {
     var userCompany: String? = null
     var userLocation: String? = null
     var userPublicRepo: Int = 0
+    var userHtmlUrl: String? = null
 
 }

@@ -38,6 +38,7 @@ class DetailUserViewModel : ViewModel() {
                     gitHubUserDetailList.userLocation = response.getString("location")
                     gitHubUserDetailList.userCompany = response.getString("company")
                     gitHubUserDetailList.userPublicRepo = response.getInt("public_repos")
+                    gitHubUserDetailList.userHtmlUrl = response.getString("html_url")
 
                     detailUserItem.add(gitHubUserDetailList)
 

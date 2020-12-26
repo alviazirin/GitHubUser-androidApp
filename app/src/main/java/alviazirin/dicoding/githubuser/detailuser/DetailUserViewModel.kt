@@ -8,9 +8,7 @@ import androidx.lifecycle.ViewModel
 import com.loopj.android.http.AsyncHttpClient
 import com.loopj.android.http.AsyncHttpResponseHandler
 import cz.msebera.android.httpclient.Header
-
 import org.json.JSONObject
-import java.lang.Exception
 
 class DetailUserViewModel : ViewModel() {
 
@@ -40,6 +38,7 @@ class DetailUserViewModel : ViewModel() {
                     gitHubUserDetailList.userLocation = response.getString("location")
                     gitHubUserDetailList.userCompany = response.getString("company")
                     gitHubUserDetailList.userPublicRepo = response.getInt("public_repos")
+                    gitHubUserDetailList.userHtmlUrl = response.getString("html_url")
 
                     detailUserItem.add(gitHubUserDetailList)
 

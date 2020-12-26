@@ -19,7 +19,7 @@ class FavUserWidget : AppWidgetProvider() {
         const val EXTRA_ITEM = "alviazirin.dicoding.githubuser.EXTRA_ITEM"
 
         private fun updateAppWidget(context: Context, appWidgetManager: AppWidgetManager, appWidgetId: Int) {
-            val intent = Intent(context,FavUserWidget::class.java)
+            val intent = Intent(context,StackWidgetService::class.java)
             intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId)
             intent.data = intent.toUri(Intent.URI_INTENT_SCHEME).toUri()
 
