@@ -5,6 +5,7 @@
     app:iconSpaceReserved="false">
 
     <SwitchPreference
+        android:icon="@drawable/ic_notifications_black_48dp"
         android:defaultValue="false"
         android:key="@string/key_alarm"
         android:title="@string/alarmPreference" />
@@ -15,8 +16,4 @@
         android:entryValues="@array/key_languageLabel"
         android:key="@string/key_lang"
         android:title="@string/change_language" />
-    <Preference
-        android:title="Acts like a button"
-        android:key="@string/key_langpref"
-        android:summary="This is a cool button"/>
 </PreferenceScreen>

@@ -53,11 +53,13 @@ class AlarmReceiver : BroadcastReceiver() {
 
 
         val calendar = Calendar.getInstance()
+        val whatDay = calendar.get(Calendar.DAY_OF_YEAR)
+        val whatDayPlus = whatDay+1
         val whathour = calendar.get(Calendar.HOUR_OF_DAY)
         val whatMinute = calendar.get(Calendar.MINUTE)
         val pendingIntent = PendingIntent.getBroadcast(context, ID_SETALARM, intent, PendingIntent.FLAG_UPDATE_CURRENT)
         if (whathour>=9 && whatMinute>0){
-            calendar.add(Calendar.DAY_OF_YEAR,1)
+            calendar.set(Calendar.DAY_OF_YEAR, whatDayPlus)
         }
         calendar.set(Calendar.HOUR_OF_DAY, Integer.parseInt(timeArray[0]))
         calendar.set(Calendar.MINUTE, Integer.parseInt(timeArray[1]))
