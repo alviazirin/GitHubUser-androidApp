@@ -8,7 +8,6 @@ import com.loopj.android.http.AsyncHttpClient
 import com.loopj.android.http.AsyncHttpResponseHandler
 import cz.msebera.android.httpclient.Header
 import org.json.JSONArray
-import java.lang.Exception
 
 class FollowerViewModel : ViewModel() {
 
@@ -20,8 +19,6 @@ class FollowerViewModel : ViewModel() {
         val listFollowerItem = ArrayList<GitHubUserList>()
 
         val url = "https://api.github.com/users/$passedUsername/followers"
-
-        Log.d("followerUrl", url)
 
         val clientFollower = AsyncHttpClient()
         clientFollower.addHeader("Authorization","token 76d86c1b1b1ece5d8c423376cc10287d8431d514")

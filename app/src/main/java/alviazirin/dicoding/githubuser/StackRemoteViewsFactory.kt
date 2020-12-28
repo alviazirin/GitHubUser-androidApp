@@ -34,9 +34,9 @@ internal class StackRemoteViewsFactory(private val mContext: Context): RemoteVie
     override fun getCount(): Int = mWidgetItems.size
 
     override fun getViewAt(position: Int): RemoteViews {
-       //getImage()
+
         val rv = RemoteViews(mContext.packageName, R.layout.widget_item)
-       /* rv.setImageViewBitmap(R.id.imageView, mWidgetItems[position])*/
+
         val bitmap = Glide.with(mContext)
                 .asBitmap()
                 .load(mWidgetItems.get(position).favUserAvatarUrl)

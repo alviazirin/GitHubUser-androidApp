@@ -9,9 +9,7 @@ import android.widget.RemoteViews
 import android.widget.Toast
 import androidx.core.net.toUri
 
-/**
- * Implementation of App Widget functionality.
- */
+
 class FavUserWidget : AppWidgetProvider() {
 
     companion object {
@@ -44,7 +42,7 @@ class FavUserWidget : AppWidgetProvider() {
         if (intent.action != null){
             if (intent.action == TOAST_ACTION){
                 val viewIndex = intent.getIntExtra(EXTRA_ITEM,0)
-                Toast.makeText(context, "Touched view $viewIndex", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Touched view ${viewIndex+1}", Toast.LENGTH_SHORT).show()
             }
         }
     }

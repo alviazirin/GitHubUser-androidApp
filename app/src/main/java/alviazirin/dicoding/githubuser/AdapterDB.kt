@@ -2,7 +2,6 @@ package alviazirin.dicoding.githubuser
 
 
 import alviazirin.dicoding.githubuser.entity.FavUser
-import alviazirin.dicoding.githubuser.model.GitHubUserList
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup

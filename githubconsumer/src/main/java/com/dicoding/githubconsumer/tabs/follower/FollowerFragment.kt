@@ -1,7 +1,6 @@
 package alviazirin.dicoding.githubuser.ui.tabs.follower
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -46,9 +45,6 @@ class FollowerFragment : Fragment() {
         setAdapterRV()
 
         val passedUsername = arguments?.getString(ARG_USERNAME)
-        Log.d("ReceivedUser", passedUsername.toString())
-
-
 
         followerViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(
             FollowerViewModel::class.java)
