@@ -4,25 +4,18 @@ package alviazirin.dicoding.githubuser
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.preference.ListPreference
-import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.SwitchPreference
-import com.google.android.material.snackbar.Snackbar
-import kotlinx.android.synthetic.main.activity_setting.*
 import java.util.*
 
 class PreferenceFragment : PreferenceFragmentCompat(),
     SharedPreferences.OnSharedPreferenceChangeListener {
     private lateinit var ALARM: String
     private lateinit var LANG: String
-    private lateinit var currentLanguage: String
-
 
     private lateinit var userAlarmPreference: SwitchPreference
-    private lateinit var userLangPreference: Preference
     private lateinit var userListLang: ListPreference
     private lateinit var alarmReceiver: AlarmReceiver
 
@@ -30,8 +23,6 @@ class PreferenceFragment : PreferenceFragmentCompat(),
         addPreferencesFromResource(R.xml.setting_preferences)
         initialize()
         setPref()
-
-
     }
 
     override fun onResume() {
@@ -44,15 +35,9 @@ class PreferenceFragment : PreferenceFragmentCompat(),
         preferenceScreen.sharedPreferences.unregisterOnSharedPreferenceChangeListener(this)
     }
 
-
-
     private fun initialize() {
         ALARM = resources.getString(R.string.key_alarm)
-        Log.d("Init ALARM: ", ALARM)
         LANG = resources.getString(R.string.key_lang)
-
-
-
 
         userAlarmPreference = findPreference<SwitchPreference>(ALARM) as SwitchPreference
 
@@ -79,8 +64,6 @@ class PreferenceFragment : PreferenceFragmentCompat(),
 
     override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences, key: String) {
         if (key == ALARM){
-            userAlarmPreference.isChecked = sharedPreferences.getBoolean(ALARM, false)
-            Toast.makeText(context,"Alarm state:"+ALARM,Toast.LENGTH_SHORT).show()
 
             if (userAlarmPreference.isChecked){
                 val time = "09:00"
@@ -92,6 +75,7 @@ class PreferenceFragment : PreferenceFragmentCompat(),
                 showToastMessage(resources.getString(R.string.alarmStateOff))
             }
         }
+
         if (key == LANG){
 
             val value = userListLang.value.toString()
@@ -101,14 +85,9 @@ class PreferenceFragment : PreferenceFragmentCompat(),
                 setLocale(context,"in")
             }
             userListLang.summary = value
-
-
-
         }
     }
-    private fun showSnackBarMessage(message: String) {
-        Snackbar.make(setting_holder, message, Snackbar.LENGTH_SHORT).show()
-    }
+
     private fun showToastMessage(message: String){
         Toast.makeText(context,message,Toast.LENGTH_LONG).show()
     }

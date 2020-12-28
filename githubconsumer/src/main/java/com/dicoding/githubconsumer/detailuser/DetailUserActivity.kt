@@ -5,9 +5,7 @@ import android.content.ContentValues
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -83,61 +81,41 @@ class DetailUserActivity : AppCompatActivity() {
 
         }
 
-        /*favUserHelper = FavUserHelper.getInstance(applicationContext)
-        favUserHelper.open()*/
-
-
         loadFavUser(passedUsername.toString())
         var statusFavorite: Boolean = state
 
-        favButton.setOnClickListener { view ->
-            statusFavorite = !statusFavorite
-            Log.d("statusfavoritenow",statusFavorite.toString())
+        favButton.setOnClickListener {
+                                        statusFavorite = !statusFavorite
 
-            if (statusFavorite){
+                                        if (statusFavorite){
 
-                val userLoginName = tv_DuserLogin.text.toString()
-                val userFavAva = tv_getter.text.toString()
+                                            val userLoginName = tv_DuserLogin.text.toString()
+                                            val userFavAva = tv_getter.text.toString()
 
+                                            val values = ContentValues()
+                                            values.put(FAVUSERLOGINNAME, userLoginName)
+                                            values.put(FAVUSERAVATARURL, userFavAva)
+                                            contentResolver.insert(CONTENT_URI,values)
 
-                val values = ContentValues()
-                values.put(FAVUSERLOGINNAME, userLoginName)
-                values.put(FAVUSERAVATARURL, userFavAva)
-                contentResolver.insert(CONTENT_URI,values)
-                Log.d("statebutton", statusFavorite.toString() + " Doing input DB")
+                                        } else {
+                                            val userLogName = tv_DuserLogin.text.toString()
+                                            val uri= Uri.parse("$CONTENT_URI/$userLogName")
+                                            contentResolver.delete(uri, null, null)
 
-
-            } else {
-                val userLogName = tv_DuserLogin.text.toString()
-                val uri= Uri.parse("$CONTENT_URI/$userLogName")
-                contentResolver.delete(uri, null, null)
-                Log.d("statebutton", statusFavorite.toString() + " Delete data from DB")
-
-            }
-
-            setFavorited(statusFavorite)
-            Toast.makeText(this, "Fab button working", Toast.LENGTH_SHORT).show()
+                                        }
+                                        setFavorited(statusFavorite)
         }
 
-        shareButton.setOnClickListener { view ->
-            val url = tv_htmlGetter.text.toString()
-            val sendIntent = Intent().apply {
-                action = Intent.ACTION_SEND
-                putExtra(Intent.EXTRA_TEXT, url)
-                type = "text/plain"
-            }
-            val shareIntent = Intent.createChooser(sendIntent,null)
-            startActivity(shareIntent)
+        shareButton.setOnClickListener {
+                                        val url = tv_htmlGetter.text.toString()
+                                        val sendIntent = Intent().apply {
+                                            action = Intent.ACTION_SEND
+                                            putExtra(Intent.EXTRA_TEXT, url)
+                                            type = "text/plain"
+                                        }
+                                        val shareIntent = Intent.createChooser(sendIntent,null)
+                                        startActivity(shareIntent)
         }
-
-
-    }
-
-    override fun onStart() {
-        super.onStart()
-
-
-
     }
 
     private fun loadFavUser(loginName: String) {
@@ -151,16 +129,10 @@ class DetailUserActivity : AppCompatActivity() {
 
         if (listFav.size>0){
             state = true
-            //returnedState = !returnedState
-            Log.d("favState", "User is favorited")
-            Log.d("stateLoad", state.toString())
             setFavorited(true)
             cursor?.close()
         } else {
             state = false
-            //returnedState = !returnedState
-            Log.d("favState", "User doesn't favorited")
-            Log.d("stateLoad", state.toString())
             setFavorited(false)
             cursor?.close()
         }

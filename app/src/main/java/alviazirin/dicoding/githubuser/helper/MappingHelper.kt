@@ -20,15 +20,4 @@ object MappingHelper {
         return favUserList
     }
 
-    fun mapCursorToObject(favCursor: Cursor?):FavUser{
-        var favUser = FavUser()
-        favCursor?.apply {
-            moveToFirst()
-            val id = getInt(getColumnIndexOrThrow(DatabaseContract.FavUserColumns._ID))
-            val userLoginName = getString(getColumnIndexOrThrow(DatabaseContract.FavUserColumns.FAVUSERLOGINNAME))
-            val userAva = getString(getColumnIndexOrThrow(DatabaseContract.FavUserColumns.FAVUSERAVATARURL))
-            favUser = FavUser(id,userLoginName,userAva)
-        }
-        return  favUser
-    }
 }

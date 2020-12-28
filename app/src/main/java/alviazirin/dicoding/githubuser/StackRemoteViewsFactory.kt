@@ -23,17 +23,6 @@ internal class StackRemoteViewsFactory(private val mContext: Context): RemoteVie
 
     override fun onDataSetChanged() {
         val token = Binder.clearCallingIdentity()
-        /*getImage()*/
-
-       /* val handlerThread = HandlerThread("ObserverDataWidget")
-        handlerThread.start()
-        val handler = Handler(handlerThread.looper)
-        val mObserver = object : ContentObserver(handler){
-            override fun onChange(selfChange: Boolean) {
-                getFavUser()
-            }
-        }
-        mContext.contentResolver?.registerContentObserver(CONTENT_URI, true,mObserver)*/
         getFavUser()
         Binder.restoreCallingIdentity(token)
     }
@@ -71,31 +60,6 @@ internal class StackRemoteViewsFactory(private val mContext: Context): RemoteVie
     override fun getItemId(position: Int): Long = 0
 
     override fun hasStableIds(): Boolean = false
-
-    /*private fun getImage(){
-
-
-        val cursor = mContext.contentResolver?.query(CONTENT_URI,null,null,null,null)
-        val favUserAva = MappingHelper.mapCursorToArrayList(cursor)
-
-        for (data in favUserAva){
-            Glide.with(mContext)
-                    .asBitmap()
-                    .load(data.favUserAvatarUrl)
-                    .apply(RequestOptions().placeholder(R.drawable.ic_cached_white_24dp))
-                    .error(R.drawable.ic_broken_image_white_24dp)
-                    .into(object : CustomTarget<Bitmap>(){
-                        override fun onResourceReady(resource: Bitmap, transition: com.bumptech.glide.request.transition.Transition<in Bitmap>?) {
-                            mWidgetItems.add(resource)
-                        }
-
-                        override fun onLoadCleared(placeholder: Drawable?) {
-
-                        }
-
-                    })
-        }
-    }*/
 
     private fun getFavUser(){
          cursor = mContext.contentResolver?.query(CONTENT_URI,null,null,null,null) as Cursor

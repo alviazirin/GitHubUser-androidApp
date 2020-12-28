@@ -42,12 +42,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun loadFavUserFromDB() {
         GlobalScope.launch(Dispatchers.Main){
-            progressBar.visibility = View.VISIBLE
+            showLoading(true)
             val defferedUser = async(Dispatchers.IO){
                 val cursor = contentResolver.query(CONTENT_URI, null, null, null, null)
                 MappingHelper.mapCursorToArrayList(cursor)
             }
-            progressBar.visibility = View.INVISIBLE
+           showLoading(false)
             val favUser = defferedUser.await()
             if (favUser.size > 0){
                 adapterDB.setData(favUser)

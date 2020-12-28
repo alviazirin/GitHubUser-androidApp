@@ -42,6 +42,9 @@ class MainActivity : AppCompatActivity() {
                 adapter.setDataMain(gitHubUserList)
                 showLoading(false)
             }
+            fab_refresh.setOnClickListener {
+                                            adapter.setDataMain(gitHubUserList)
+                                            fab_refresh.visibility = View.GONE}
         })
 
         adapter.setOnItemClickCallBack(object : MainViewAdapter.OnItemClickCallBack {
@@ -52,6 +55,8 @@ class MainActivity : AppCompatActivity() {
             }
 
         })
+
+
 
     }
 
@@ -80,10 +85,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
-            /*R.id.option_lang -> {
-                                    val langIntent =  Intent(Settings.ACTION_LOCALE_SETTINGS)
-                                    startActivity(langIntent)
-                                }*/
             R.id.favorite -> {
                                     val intentFav = Intent(this, FavoriteActivity::class.java)
                                     startActivity(intentFav)
@@ -100,7 +101,7 @@ class MainActivity : AppCompatActivity() {
     private fun showLoading(state: Boolean) {
         if (state == true){
             progressBar.visibility = View.VISIBLE
-        }else{
+        } else {
             progressBar.visibility = View.GONE
         }
     }
@@ -115,6 +116,8 @@ class MainActivity : AppCompatActivity() {
                 adapter.setDataMain(searchedUser)
                 showLoading(false)
             }
+
+            fab_refresh.visibility = View.VISIBLE
         })
     }
 
@@ -124,7 +127,6 @@ class MainActivity : AppCompatActivity() {
 
         rv_userList.layoutManager = LinearLayoutManager(this)
         rv_userList.adapter = adapter
-
     }
 
 }
